@@ -1,12 +1,9 @@
 <template>
   <main>
     <nav class="nav nav1" > 
-        <div>
-          <a href="/" class="nav-item" data-color="#446A46" >Home</a>
-          <a href="/stats" class="nav-item" data-color="#446A46" >Stats</a>
-          <a href="/settings" class="nav-item" data-color="#446A46" >Settings</a>
-          <span class="nav-indicator"></span>
-        </div>
+        <a href="/" class="nav-item" data-color="#446A46" >Home</a>
+        <a href="/stats" class="nav-item" data-color="#446A46" >Stats</a>
+        <a href="/settings" class="nav-item" data-color="#446A46" >Settings</a>
     </nav>
 
     <router-view />
@@ -21,9 +18,12 @@ export default {
   },
   mounted(){
     // Disable scrolling.
-    document.ontouchmove = function (e) {
-      e.preventDefault();
-    }
+    // document.ontouchmove = function (e) {
+    //   e.preventDefault();
+    // }
+    // document.on('touchmove', function(e) {
+    // e.preventDefault();
+    // });
   },
 
 }
@@ -33,6 +33,8 @@ export default {
 body{
   background-color: #0F4C75;
   color: #BBE1FA;
+  margin: 0;
+  padding: 0;
 }
 
 #app {
@@ -44,27 +46,17 @@ body{
   user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
-  /* overflow: hidden;
-  position: fixed; */
+
+  position: fixed;
+  width: 100vw;
+  
 }
 
 main {
-  /* display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center; */
-  /* padding: 20px 0; */
-
-  /* background-color: red; */
   margin: 15px auto;
+
   width: 90vw;
   max-width: 600px;
-  /* margin: 15px 0;  */
 }
 
 .nav {
@@ -83,21 +75,31 @@ main {
   display: inline-block;
   overflow: hidden;
   position: relative;
-  height: 50px;
+  /* height: 50px; */
 
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  text-align: center;
+  display: block;
+  padding: 15px;
+  /* align-items: center;
+   */
 
 }
 .nav-item {
+  /* padding: 50px; */
+  /* height: 10%; */
+  /* display: block; */
+  /* background-color: red; */
+  /* width: 33%; */
   color: #1B262C;
-  padding: 30px 20px;
+  /* padding: 30px 20px; */
   text-decoration: none;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
-  margin: 0 6px;
+  /* margin: 0 6px; */
   z-index: 1;
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
