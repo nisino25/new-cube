@@ -1,17 +1,16 @@
 <template>
-  <div class="wrapper">
+  <main>
     <nav class="nav nav1" > 
         <div>
           <a href="/" class="nav-item" data-color="#446A46" >Home</a>
+          <a href="/stats" class="nav-item" data-color="#446A46" >Stats</a>
           <a href="/settings" class="nav-item" data-color="#446A46" >Settings</a>
           <span class="nav-indicator"></span>
         </div>
     </nav>
 
-    <button @click="topFunction()" id="myBtn" title="Go to top" :style="showing ? 'opacity: 1;' : 'opacity: 0;'">&#8593;</button>
-
-  </div>
-  <router-view />
+    <router-view />
+  </main>
 </template>
 
 <script>
@@ -19,28 +18,35 @@
 export default {
   name: 'App',
   components: {
-  }
+  },
+  mounted(){
+    // Disable scrolling.
+    document.ontouchmove = function (e) {
+      e.preventDefault();
+    }
+  },
+
 }
 </script>
 
 <style>
 body{
-  background-color: #eee;
+  background-color: #0F4C75;
+  color: #BBE1FA;
 }
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   
-  /* text-align: center; */
-  /* color: #E94560; */
-  
+  touch-action: manipulation;
+  /* overflow: hidden;
+  position: fixed; */
 }
 
-.wrapper {
-  display: -webkit-box;
+main {
+  /* display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
@@ -48,25 +54,24 @@ body{
   justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center;
-  padding: 20px 0;
-
-  
+  align-items: center; */
+  /* padding: 20px 0; */
 
   /* background-color: red; */
-
-  
+  margin: 15px auto;
+  width: 90vw;
+  max-width: 600px;
+  /* margin: 15px 0;  */
 }
+
 .nav {
-  /* float: right; */
+  background-color: #BBE1FA;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   overflow: hidden;
   max-width: 660px;
   min-width: 600px;
-  /* background-color: #fff; */
-  /* background-color: red; */
   padding: 0 20px;
   border-radius: 20px;
   -webkit-box-shadow: 0 8px 36px rgba(157, 160, 175, 0.8);
@@ -78,17 +83,12 @@ body{
   height: 50px;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
-
-  
-  /* height: 200px; */
-  /* border: 3px solid green;  */
-  /* background-color: red; */
 }
 .nav-item {
-  color: #83818c;
+  color: #1B262C;
   padding: 30px 20px;
   text-decoration: none;
   -webkit-transition: 0.3s;
@@ -98,10 +98,6 @@ body{
   z-index: 1;
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
-  /* text-align: right; */
-
-  /* background-color: red; */
-  /* float: right; */
 }
 .nav-item:before {
   content: "";

@@ -1,3 +1,3 @@
 <template>
-  this is home page
+  <strong></strong>
 </template>
