@@ -41,6 +41,9 @@ body{
   -moz-osx-font-smoothing: grayscale;
   
   touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
   /* overflow: hidden;
   position: fixed; */
 }
